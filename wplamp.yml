@@ -1,0 +1,6 @@
+---
+- hosts: single
+  become: yes
+  roles:
+   - geerlingguy.apache
+   - roles/wordpress
