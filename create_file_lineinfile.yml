@@ -1,0 +1,14 @@
+---
+- hosts: local
+  tasks:
+  - name: upload to target if it doesn't exist
+    copy:
+      src: /opt/program1.sh
+      dest: /home/ansible/program1.sh
+      mode: 0755
+  - name: if line is not there the add it
+    lineinfile:
+      state: present
+      dest: /home/ansible/program1.sh
+      regexp: '^hostname2='
+      line: hostname2={{ansible_hostname}}

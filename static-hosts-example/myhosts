@@ -1,0 +1,9 @@
+[databases]
+rorys322.mylabserver.com ansible_user=user
+
+[other]
+rorys322.mylabserver.com
+rorys323.mylabserver.com
+
+[other:vars]
+log_folders=/opt/logs

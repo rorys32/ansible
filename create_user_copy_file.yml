@@ -1,0 +1,12 @@
+---
+- hosts: local
+  become: yes
+  tasks:
+  - user:
+      name: newuser
+      comment: "New User"
+  - name: upload file to target if it doesn't exist
+    copy:
+      src: /opt/program1.sh
+      dest: /home/newuser/program1.sh
+      mode: 0755

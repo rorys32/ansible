@@ -1,0 +1,7 @@
+---
+- hosts: local
+  vars:
+   create_file: true
+  tasks:
+  - name: create file
+    copy: src=/etc/ansible/hosts dest=/home/ansible/hosts

@@ -1,0 +1,19 @@
+---
+- hosts: databases
+  become: yes
+  tasks:
+  - name: upload a file to the target if it doesn't exist
+    copy:
+     src: /opt/program1.sh
+     dest: /home/ansible/program1.sh
+     mode: 0755
+  - name: if the line isn't in the file then add it
+    lineinfile:
+     state: present
+     dest: /home/ansible/program1.sh
+     regexp: '^HOSTNAME='
+     line: HOSTNAME={{ansible_hostname}}
+  - name: Run the program
+    shell: /home/ansible/program1.sh
+    register: program_output
+  - debug: msg="stdout={{program_output}}"
