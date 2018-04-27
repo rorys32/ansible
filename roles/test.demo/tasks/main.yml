@@ -1,0 +1,3 @@
+---
+# tasks file for test.demo
+- copy: content="{{special_password}}" dest=/home/ansible/encrypted_output

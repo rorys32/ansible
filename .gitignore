@@ -1,1 +1,15 @@
 galaxy/
+.pki/
+.mozilla/
+.ssh/
+.ansible
+.ansible_galaxy
+.bash_history
+.bash_logout
+.bash_profile
+.bashrc
+.gitignore
+first_file
+hosts
+*.retry
+testfile

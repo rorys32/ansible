@@ -1,0 +1,47 @@
+
+Create an ansible user to use with the labs.
+
+sudo useradd -G wheel ansible
+
+Log out and log in as the ansible user.
+
+Create an ssh key for your user.
+
+ssh-keygen
+
+Use the ssh-copy-id command to copy your own ssh key to your own user's authority file.
+
+ssh-copy-id localhost
+
+ansible mygroup -i myhosts -m ping
+
+
+ansible all -m ping
+
+ansible all -a "/bin/df -h"
+
+ansible all -a "/usr/bin/free"
+
+ansible all -a "ls -l  /var/log/messages"
+
+ansible local -b -a "tail  /var/log/messages"
+
+ansible all -b -m yum -a 'name=php state=present'
+
+ansible all -b -m yum -a 'name=php state=latest'
+
+ansible all -b -m yum -a 'name=httpd state=latest'
+
+ansible all -b -m yum -a 'name=httpd state=absent'
+
+ansible-galaxy init [path to role] - builds role file structure
+
+ansible-galaxy install geerlingguy.apache -p
+
+ansible-vault encrypt testing.txt
+
+ansible-vault edit testing.txt
+
+ansible-vault rekey testing.txt
+
+ansible-vault decrypt testing.txt
